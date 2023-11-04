@@ -1,0 +1,12 @@
+{
+  "name": "access-control",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nordark-co/access-control.git",
+  "author": "Daryl Cecile <darylcecile@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@1.22.4",
+  "scripts": {
+    "build": "bun build ./src/index.ts ./src/tools.ts --outdir ./build"
+  }
+}

@@ -6,11 +6,29 @@ export type GrantAttribute = `*` | `!${string}` | (string & {});
 export type GrantMetadata = {
     attributes?: Array<GrantAttribute>;
 }
+export type GrantPolicy = {
+    action: GrantAction,
+    metadata: GrantMetadata
+}
 
-export type Grants = {
-    [role:string] : {
-        [resource: string]: Partial<Record<GrantAction, GrantMetadata>>
-    }
+export type Grant = {
+    role: string,
+    resource: string,
+    policies: Array<GrantPolicy>
+}
+
+export type Grants = Array<Grant>;
+
+export type GrantMethods = {
+    readOwn: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    readAny: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    createOwn: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    createAny: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    updateOwn: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    updateAny: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    deleteOwn: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    deleteAny: (resource: string, metadata?: GrantMetadata) => GrantMethods,
+    access: (resource: string, metadata?: GrantMetadata) => GrantMethods
 };
 
 export type PermissionResult<M extends GrantMetadata = GrantMetadata> = {

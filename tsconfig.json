@@ -1,9 +1,13 @@
 {
     "compilerOptions": {
+        "outDir": "./dist/",
+        "declaration": true,
         "strict": true,
         "lib": [
             "ES2020",
             "dom"
-        ]
-    }
+        ],
+        "resolveJsonModule": true
+    },
+    "exclude": ["./build.ts"]
 }

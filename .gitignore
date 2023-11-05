@@ -131,3 +131,5 @@ dist
 
 .turbo
 build/
+*.js
+*.d.ts

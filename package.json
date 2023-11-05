@@ -1,6 +1,6 @@
 {
   "name": "@nordark/access-control",
-  "version": "0.0.3",
+  "version": "0.0.16",
   "main": "index.js",
   "repository": "https://github.com/nordark-co/access-control.git",
   "author": "Daryl Cecile <darylcecile@gmail.com>",
@@ -16,7 +16,8 @@
     "build": "bun build ./src/index.ts ./src/tools.ts --outdir ./dist/ && bun build:declaration && bun build:package",
     "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.json",
     "build:package": "bun build.ts",
-    "prepublishOnly": "yarn build:clean && yarn build"
+    "prepackage": "yarn build:clean && yarn build",
+    "package": "cd dist && yarn publish -f"
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
